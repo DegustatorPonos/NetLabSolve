@@ -86,7 +86,7 @@ func main() {
 	fmt.Println()
 
 	// 2.2.3.
-	fmt.Println("======== TASK 2.2.1 ========")
+	fmt.Println("======== TASK 2.2.3 ========")
 	var ttthParts = SplitIpV4IntoSubnetsByNodes(BaseConditions.baseIpV4, BaseConditions.Z3 + 2)
 	for i := range 5 {
 		fmt.Println()
