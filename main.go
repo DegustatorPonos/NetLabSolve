@@ -34,22 +34,23 @@ type InputConditions struct {
 }
 
 func main() {
-
-
 	var BaseConditions = GetConditions()
 
-	var baseIpV6 = GetBaseIpV6(BaseConditions.Name, BaseConditions.Y0)
+	var baseIpV6 = GetBaseIpV6(BaseConditions.Name, BaseConditions.group)
 	// 1.1
 	fmt.Println("======== TASK 1.1 ========")
 	fmt.Println("!! IMPORTANT! IT'S NOT A SHORT FORM!")
 	baseIpV6.PrintIpV6()
+
 
 	// 1.2
 	fmt.Println("======== TASK 1.2 ========")
 	fmt.Println("!! IMPORTANT! IT'S NOT A SHORT FORM!")
 	var fsParts = SplitIpV6IntoSubnets(baseIpV6, BaseConditions.Y0)
 	fsParts[0].PrintIpV6()
-	fsParts[BaseConditions.Y0 - 1].PrintIpV6()
+	fsParts[len(fsParts) - 1].PrintIpV6()
+
+	return
 	
 	// 2.1.1.
 	fmt.Println("======== TASK 2.1.1 ========")
@@ -105,6 +106,8 @@ func GetConditions() InputConditions {
 	if len(outp.Name) > 5 {
 		outp.Name = outp.Name[0:5]
 	}
+	fmt.Println("Enter your group name:")
+	outp.group = readInt()
 	fmt.Println("Enter your variant:")
 	outp.variant = readInt()
 	outp.baseIpV4 = GetBaseIp(outp.variant)
@@ -176,6 +179,7 @@ func SplitIpV4IntoSubnets(inp IpV4, SubnetAmmount int) []IpV4 {
 
 func SplitIpV6IntoSubnets(inp IpV6, SubnetAmmount int) []IpV6 {
 	var power, value = RoundToClosestPower(SubnetAmmount)
+	fmt.Printf("Renting %v bits\n", power)
 	var outp = make([]IpV6, value)
 	for i := range value {
 		outp[i] = IpV6{
