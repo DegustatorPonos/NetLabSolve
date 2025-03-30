@@ -50,8 +50,6 @@ func main() {
 	fsParts[0].PrintIpV6()
 	fsParts[len(fsParts) - 1].PrintIpV6()
 
-	return
-	
 	// 2.1.1.
 	fmt.Println("======== TASK 2.1.1 ========")
 	var tooParts = SplitIpV4IntoSubnets(BaseConditions.baseIpV4, BaseConditions.Y1)
@@ -179,7 +177,7 @@ func SplitIpV4IntoSubnets(inp IpV4, SubnetAmmount int) []IpV4 {
 
 func SplitIpV6IntoSubnets(inp IpV6, SubnetAmmount int) []IpV6 {
 	var power, value = RoundToClosestPower(SubnetAmmount)
-	fmt.Printf("Renting %v bits\n", power)
+	// fmt.Printf("Renting %v bits\n", power)
 	var outp = make([]IpV6, value)
 	for i := range value {
 		outp[i] = IpV6{
