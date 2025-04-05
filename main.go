@@ -94,7 +94,7 @@ func main() {
 	fmt.Println()
 
 	// 2.2.4.
-	Solvettf(tooParts[4], ttthParts[len(ttthParts) - 1])
+	Solvettf(tooParts[4], ttthParts[len(ttthParts) - 5])
 }
 
 func GetConditions() InputConditions {
@@ -275,7 +275,7 @@ func Solvettf(N5, N1 IpV4){
 	fmt.Printf("N5: %v \n     ", strconv.FormatUint(uint64(N5.address), 2))
 	N5.printIpV4(false)
 	fmt.Printf("N1: %v \n     ", strconv.FormatUint(uint64(N1.address), 2))
-	N5.printIpV4(false)
+	N1.printIpV4(false)
 	var CommonMask = GetCommonMask(N5, N1)
 	fmt.Printf("Common mask: %v\n", CommonMask)
 	fmt.Println("Common meganet:")
